@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="utf-8">
+	<title>Open Health Prices</title>
+	<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+	<meta name="description" content="" />
+	<meta name="author" content="http://webthemez.com" />
+	<!-- css -->
+	<link href="css/bootstrap.min.css" rel="stylesheet" />
+	<link href="css/fancybox/jquery.fancybox.css" rel="stylesheet">
+	<link href="css/jcarousel.css" rel="stylesheet" />
+	<link href="css/flexslider.css" rel="stylesheet" />
+	<link href="css/style.css" rel="stylesheet" />
+	<link rel="icon" type="image/svg+xml" href="img/medical-report.svg">
+
+
+	<!-- HTML5 shim, for IE6-8 support of HTML5 elements -->
+	<!--[if lt IE 9]>
+      <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+
+</head>
+
+<body>
+	<div id="wrapper">
+
+		<!-- start header -->
+		<header>
+			<div class="navbar navbar-default navbar-static-top">
+				<div class="container">
+					<div class="navbar-header">
+						<button type="button" class="navbar-toggle" data-toggle="collapse"
+							data-target=".navbar-collapse">
+							<span class="icon-bar"></span>
+							<span class="icon-bar"></span>
+							<span class="icon-bar"></span>
+						</button>
+						<a class="navbar-brand" href="index.html"
+							style="display: flex; align-items: center; font-size: 30px; text-transform: none;">
+							<img src="img/medical-report.svg" alt="logo" style="width: 48px; height: 48px;" />
+							Open Health Prices
+						</a>
+					</div>
+					<div class="navbar-collapse collapse ">
+						<ul class="nav navbar-nav">
+							<li><a href="index.html">Home</a></li>
+							<li class="active"><a href="data.html">The Data</a></li>
+							<!--<li><a href="pricing.html">Donate</a></li>-->
+							<li><a href="contact.html">Contact</a></li>
+						</ul>
+					</div>
+				</div>
+			</div>
+		</header>
+		<section id="inner-headline">
+			<div class="container">
+				<div class="row">
+				</div>
+			</div>
+		</section>
+		<section id="content">
+			<div class="container">
+
+				<div class="about">
+
+					<div class="row">
+						<div class="col-md-12">
+							<div class="about-logo">
+								<h3>The Data</h3>
+								<p>All data is released under <a
+										href="https://creativecommons.org/licenses/by-nc-sa/4.0/" target="_blank">
+										Attribution-NonCommercial-ShareAlike 4.0 International</a> and can be used
+									freely for non commercial use.
+									If you have a commercial use case or want more frequent updates <a
+										href="contact.html">contact us</a>.</p>
+								<p>Data is available in several formats. Each download contains a detailed readme
+									describing the data format. Many of these downloads are very large. If you want help
+									interpreting or integrating the data into your project <a
+										href="contact.html">contact us</a>.</p>
+								<p>Lastly, hospital pricing data can be dirty, if you find issues with any of the
+									datasets below please report the issue.</p>
+							</div>
+						</div>
+					</div>
+					<div class="row">
+						<div id="releases" class="col-md-12" style="overflow-x: hidden;">
+						</div>
+					</div>
+		</section>
+		<footer>
+			<div class="container">
+				<div class="row">
+					<div class="col-12">
+						<div class="copyright">
+							<p>
+								&copy; <span id="current-year">2024</span> All right reserved by Open Health Prices
+							</p>
+						</div>
+					</div>
+				</div>
+			</div>
+		</footer>
+	</div>
+	<a href="#" class="scrollup"><i class="fa fa-angle-up active"></i></a>
+	<!-- javascript
+    ================================================== -->
+	<!-- Placed at the end of the document so the pages load faster -->
+	<script>
+		document.addEventListener('DOMContentLoaded', function () {
+			// Usage example
+			getGitHubReleases(USER, REPO) // Replace 'facebook' with the owner of the repo and 'react' with the repository name
+				.then(releases => {
+					for (const release of releases) {
+						const releaseElement = document.createElement('div');
+						releaseElement.innerHTML = `
+					<div class="panel panel-default">
+						<div class="panel-heading clearfix">
+							${release.name}
+							<a class="pull-right" target="_blank" href="${createGitHubIssueLink(USER,REPO,"Data Issue for Release: " + release.name)}">report issue</a>
+						</div>
+						<div class="panel-body">
+							${converter.makeHtml(release.body)}
+						</div>
+					</div>`;
+						$("#releases").append(releaseElement);
+					}
+				})
+				.catch(error => console.error("Fetching releases failed", error));
+		});
+	</script>
+	<script src="js/jquery.js"></script>
+	<script src="js/jquery.easing.1.3.js"></script>
+	<script src="js/bootstrap.min.js"></script>
+	<script src="js/jquery.fancybox.pack.js"></script>
+	<script src="js/jquery.fancybox-media.js"></script>
+	<script src="js/portfolio/jquery.quicksand.js"></script>
+	<script src="js/portfolio/setting.js"></script>
+	<script src="js/jquery.flexslider.js"></script>
+	<script src="js/showdown.min.js"></script>
+	<script src="js/animate.js"></script>
+	<script src="js/custom.js"></script>
+</body>
+
+</html>
